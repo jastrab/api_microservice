@@ -18,14 +18,16 @@ Odkazy na jednotlive použité frameworky a knižnice
 | marshmallow | https://marshmallow.readthedocs.io/en/stable/ |
 | connexion[swagger-ui] | https://connexion.readthedocs.io/en/latest/quickstart.html |
 
-## Inštalácia
-Inštalácia je pre virtuálku (venv), cez ktorú beží aplikácia. 
-Aplikácia nevžaduje virtuálku, ale je to odporúčané.
-Inštalácia knižníc je nevyhnutná pre chod aplikácie, pokiaľ už neboli predtým nainštalované.
-
+## Inštalácia cez Príkazový riadok (command line)
 ! Testované na pre Windows 10 !
 Preto sa inštalácia môže v niektorých miestach líšiť naprieč rôznymi OS.
 
+Spustiť si vo windowse **príkazový riadok** alebo **WIN + R** a napísať **cmd.exe**
+
+Treba sa nastaviť do priečinka s projektami, napr:
+```sh
+    cd C:\Kod\2022\
+```
 
 Vytvorenie priečinku, nazveme si ho napr. micro:
 
@@ -34,7 +36,25 @@ mkdir micro
 cd micro
 ```
 
+## Inštalácia programu
+Program stačí stiahnuť cez zip súbor, alebo ho naklonovať cez git rezitár.
+#### Stiahnúť zip 
+```sh
+https://github.com/jastrab/api_microservice/archive/refs/heads/main.zip
+```
+stiahnúť a rozbaliť do priečinku api, v adresári micro.
+
+alebo
+### Cez repozitár git:
+```sh
+   git clone https://github.com/jastrab/api_microservice.git api
+```
+
 ### Vytvorenie virtualky cez venv:
+Inštalácia je pre virtuálku (venv), cez ktorú beží aplikácia. 
+Aplikácia nevžaduje virtuálku, ale je to odporúčané.
+Inštalácia knižníc je nevyhnutná pre chod aplikácie, pokiaľ už neboli predtým nainštalované.
+
 Inštalácia
 ```sh
 python -m venv venv
@@ -67,13 +87,7 @@ python -m pip install marshmallow
 python -m pip install connexion[swagger-ui]
 ```
 
-### Inštalácia programu
-Program stačí stiahnuť cez zip súbor, alebo ho naklonovať cez git rezitár.
-Ako zip ho treba rozbalit v priecinku micro, kde treba vytvorit priecinok api. 
-alebo git:
-```sh
-   git clone [repo] 
-```
+
 ## Spustenie
 
 ### Incializácia DB
