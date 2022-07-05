@@ -1,4 +1,4 @@
-# MicroServis pre REST API
+﻿# MicroServis pre REST API
 ##  na manažovanie príspevkov použivateľov
 
 Aplikácia je postavená na Flasku.
