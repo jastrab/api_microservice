@@ -1,0 +1,251 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: /api
+
+paths:
+  /posts:
+    get:
+      operationId: post.get_all
+      tags:
+        - Posts
+      summary: Vrati vsetky prispevky
+      description: Vrati vsetky prispevky
+      responses:
+        200:
+          description: Uspesne nacitanie prispevkov
+          schema:
+            type: array
+            items:
+              properties:
+                _id:
+                  type: integer
+                  description: Id primary key DB
+                id:
+                  type: integer
+                  description: Id prispevku
+                userId:
+                  type: integer
+                  description: Id pouzivatela napisania prispevku
+                title:
+                  type: string
+                  description: Nazov prispevku
+                body:
+                  type: string
+                  description: Obsah prispevku
+    post:
+      operationId: post.create
+      tags:
+        - Posts
+      summary: Pridanie prispevku
+      description: Pridanie noveho prispevku
+      parameters:
+        - name: post_data
+          in: body
+          required: True
+          description: Prispevok pre pridanie
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Id prispevku
+              userId:
+                type: integer
+                description: Id pouzivatela napisaneho prispevku
+              title:
+                type: string
+                description: Nazov prispevku
+              body:
+                type: string
+                description: Obsah prispevku
+
+      responses:
+        201:
+          description: Uspesne pridany prispevok
+          schema:
+            properties:
+              id:
+                type: integer
+                description: Id prispevku
+              userId:
+                type: integer
+                description: Id pouzivatela napisania prispevku
+              title:
+                type: string
+                description: Nazov prispevku
+              body:
+                type: string
+                description: Obsah prispevku
+    
+  /posts/{id}:
+    get:
+      operationId: post.get
+      tags:
+        - Posts
+      summary: Vrati jeden prispevok
+      description: Vrati jeden prispevok
+      parameters:
+        - name: id
+          in: path
+          description: Id postu
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Uspesne nacitanie prispevku
+          schema:
+            type: object
+            properties:
+              _id:
+                type: integer
+                description: Id primary key DB
+              id:
+                type: integer
+                description: Id prispevku
+              userId:
+                type: integer
+                description: Id pouzivatela napisania prispevku
+              title:
+                type: string
+                description: Nazov prispevku
+              body:
+                type: string
+                description: Obsah prispevku
+    put:
+      operationId: post.update
+      tags:
+        - Posts
+      summary: Aktualizácia príspevku
+      description: Aktualizácia príspevku
+      parameters:
+        - name: id
+          in: path
+          description: Id prispevku pre aktualizaciu
+          type: integer
+          required: True
+        - name: post_data
+          in: body
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Nazov prispevku
+              body:
+                type: string
+                description: Obsah prispevku
+
+      responses:
+        200:
+          description: Successfully updated person
+          schema:
+            properties:
+              _id:
+                type: integer
+                description: Id primary key DB
+              id:
+                type: integer
+                description: Id prispevku
+              userId:
+                type: integer
+                description: Id pouzivatela napisania prispevku
+              title:
+                type: string
+                description: Nazov prispevku
+              body:
+                type: string
+                description: Obsah prispevku
+
+    delete:
+      operationId: post.delete
+      tags:
+        - Posts
+      summary: Odstranenie prispevku z ostatnych prispevkov
+      description: Odstranenie prispevku
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          description: Id prispevku pre odstranenie
+          required: true
+      responses:
+        200:
+          description: Uspesne odstranenie prispevku
+  /users/{userId}:
+    get:
+      operationId: user.get
+      tags:
+        - Users
+      summary: Vrati pouzivatela
+      description: Vrati pouzivatela zo vsetkymi informaciami
+      parameters:
+        - name: userId
+          in: path
+          description: Id pouzivatela
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Uspesne nacitanie informacii o pouzivateli
+          schema:
+            type: array
+            items:
+              properties:
+                _id:
+                  type: integer
+                  description: Id primary key DB
+                id:
+                  type: integer
+                  description: Id prispevku
+                userId:
+                  type: integer
+                  description: Id pouzivatela napisania prispevku
+                title:
+                  type: string
+                  description: Nazov prispevku
+                body:
+                  type: string
+                  description: Obsah prispevku
+  /users/{userId}/posts:
+    get:
+      operationId: user.get_posts
+      tags:
+        - Users
+      summary: Vrati vsetky prispevky pouzivatela
+      description: Vrati vsetky prispevky pouzivatela
+      parameters:
+        - name: userId
+          in: path
+          description: Id pouzivatela
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Uspesne nacitanie prispevkov
+          schema:
+            type: array
+            items:
+              properties:
+                _id:
+                  type: integer
+                  description: Id primary key DB
+                id:
+                  type: integer
+                  description: Id prispevku
+                userId:
+                  type: integer
+                  description: Id pouzivatela napisania prispevku
+                title:
+                  type: string
+                  description: Nazov prispevku
+                body:
+                  type: string
+                  description: Obsah prispevku
+  
