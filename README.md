@@ -45,7 +45,7 @@ https://github.com/jastrab/api_microservice/archive/refs/heads/main.zip
 stiahnúť a rozbaliť do priečinku api, v adresári micro.
 
 alebo
-### Cez repozitár git:
+#### Cez repozitár git:
 ```sh
    git clone https://github.com/jastrab/api_microservice.git api
 ```
@@ -74,6 +74,7 @@ Pre úspešné aktivovanie virtuálky je na začiatku príkazu (venv)
 ```
 ### Inštalácia knižníc
 Pozor! Stále pracujeme pod virtuálkou, ale pre prehľadnosť príkazov, ju nezobrazujem.
+
 Všetko v jednom príkaze:
 ```sh
 python -m pip install Flask-SQLAlchemy flask-marshmallow marshmallow-sqlalchemy marshmallow connexion[swagger-ui]
