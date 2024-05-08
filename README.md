@@ -63,9 +63,9 @@ Aktivácia
 ```sh
 venv\Scripts\activate
 ```
-- pre cmd: venv\Scripts\activate.bat
-- pre powershell : venv\Scripts\Activate.ps1
-- pre linux venv/bin/activate 
+- pre win - cmd: venv\Scripts\activate.bat
+- pre win - powershell : venv\Scripts\Activate.ps1
+- pre linux: source venv/bin/activate 
 
 pripade pozriet dokumentaciu https://docs.python.org/3/library/venv.html
 Pre úspešné aktivovanie virtuálky je na začiatku príkazu (venv)
